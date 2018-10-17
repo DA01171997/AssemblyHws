@@ -21,16 +21,16 @@ xor ecx,ecx
 xor edx,edx
 ; load registers with values 
 mov bx,baker			; store 70 in bx
-mov cx,charlie			; store 10 in cx
+mov cx,charlie		; store 10 in cx
 mov dx,delta			; store 30 in dx
 ; perform arithmetics
-add cx,dx				; charlie(10)+delta(30) = 40
-sub bx,cx				; baker(70)-(charlie(10)+Delta(30))=70-40=30
+add cx,dx				  ; charlie(10)+delta(30) = 40
+sub bx,cx				  ; baker(70)-(charlie(10)+Delta(30))=70-40=30
 mov able,bx				; store final result in verable able
 mov ax, able			; store able in ax for WriteDec
 ; dump registers and 
 ; print out result in decial
-call DumpRegs           ; display the registers
+call DumpRegs     ; display the registers
 call WriteDec			; display result = 30 
 exit
 main ENDP
