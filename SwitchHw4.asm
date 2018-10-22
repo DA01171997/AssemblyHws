@@ -37,9 +37,9 @@ L1:
 	mov ax,		[esi]					; ax has current value of wArray
 	add	esi,	TYPE wArray				; esi points to the next element  1 index away
 	call		WriteDec				; print current value of wArray in decimal
-	mov ax,		" "						; ad has a space
+	mov ax,		" "					; ad has a space
 	call		WriteChar				; print spaces between each value
-	loop		L1						; repeat L1 
+	loop		L1					; repeat L1 
 	call		Crlf					; print newline
 
 	; initialize loop L2
