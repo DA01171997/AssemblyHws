@@ -6,6 +6,7 @@ TITLE Indirect Address Switching HW4 (SwitchHw4)
 ; addressing to switch the 1st and 2nd element
 ; of an array, and switch for the 3rd and 4rd
 ; and 5th and 6th, etc.
+; KIP R.IRVINE library at http://kipirvine.com/asm/examples/index.htm  
 
 INCLUDE Irvine32.inc
 
