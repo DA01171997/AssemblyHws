@@ -24,13 +24,13 @@ main PROC
 	xor	edx,	edx
 	
 	; print message1
-	mov	edx,	OFFSET message1			; edx has message1
+	mov	edx,	OFFSET message1				; edx has message1
 	call		WriteString				; "This is the content of wArray before Indirect Address Switching", 0
 	call		Crlf					; print newline
 	
 	; initialize loop L1 
-	mov esi,	OFFSET wArray			; esi is pointer to first value of wArray
-	mov ecx,	LENGTHOF wArray			; L1 loop counter = number of element
+	mov esi,	OFFSET wArray				; esi is pointer to first value of wArray
+	mov ecx,	LENGTHOF wArray				; L1 loop counter = number of element
 
 	; loop L1 print all value of wArray
 L1:
@@ -43,39 +43,39 @@ L1:
 	call		Crlf					; print newline
 
 	; initialize loop L2
-	mov	esi,	OFFSET wArray			; esi is pointer to first value of wArray
-	mov edi,	OFFSET wArray			; edi is pointer to first value of wArray
-	add edi,	TYPE   wArray			; edi is poionter to second value of wArray
-	mov ecx,	(LENGTHOF wArray) - 1	; L2 loop counter = number of element - 1
+	mov	esi,	OFFSET wArray				; esi is pointer to first value of wArray
+	mov edi,	OFFSET wArray				; edi is pointer to first value of wArray
+	add edi,	TYPE   wArray				; edi is poionter to second value of wArray
+	mov ecx,	(LENGTHOF wArray) - 1			; L2 loop counter = number of element - 1
 	
 	; loop L2 use indirect addressing to switch two value
 L2:
-	mov	ax,		[esi]					; ax is temp value holder for esi
+	mov	ax,		[esi]				; ax is temp value holder for esi
 	mov bx,		[edi]					; bx is temp value holder for edi
-	mov [esi],	bx						; [esi] = [edi]
-	mov [edi],	ax						; [edi] = [esi]	 
-	add esi,	(TYPE wArray) * 2		; esi points to the next element 2 indexes away
-	add edi,	(TYPE wArray) * 2		; edi points to the next element 2 indexes away
-	loop		L2						; repeat L12
+	mov [esi],	bx					; [esi] = [edi]
+	mov [edi],	ax					; [edi] = [esi]	 
+	add esi,	(TYPE wArray) * 2			; esi points to the next element 2 indexes away
+	add edi,	(TYPE wArray) * 2			; edi points to the next element 2 indexes away
+	loop		L2					; repeat L12
 	
 	; print message2					
-	mov edx,	OFFSET message2			; edx has message2
+	mov edx,	OFFSET message2				; edx has message2
 	call WriteString					;"This is the content of wArray after Indirect Address Switching", 0
-	call Crlf							; print newline
+	call Crlf						; print newline
 
 	; initialize loop L3
-	mov	esi,	OFFSET wArray			; esi is pointer to first value of wArray
-	mov ecx,	(LENGTHOF wArray)		; L3 loop counter = number of element
+	mov	esi,	OFFSET wArray				; esi is pointer to first value of wArray
+	mov ecx,	(LENGTHOF wArray)			; L3 loop counter = number of element
 
 	; loop L3 print all value of wArray after switching values
 L3:
 	mov ax,		[esi]					; ax is temp value holder for esi
 	add	esi,	TYPE wArray				; edi points to the next element  1 index away
 	call WriteDec						; print current value of wArray in decimal
-	mov ax,		" "						; print spaces between each value
+	mov ax,		" "					; print spaces between each value
 	call WriteChar						; print spaces between each value
-	loop L3								; repeat L3 
-	call Crlf							; print newline
+	loop L3							; repeat L3 
+	call Crlf						; print newline
 
 
 call DumpRegs
