@@ -38,7 +38,7 @@ main PROC
 	mov	esi,	OFFSET wArray				; esi is pointer to first value of wArray
 	mov 	edi,	OFFSET wArray				; edi is pointer to first value of wArray
 	add 	edi,	TYPE   wArray				; edi is pointer to second value of wArray
-	mov 	ecx,	(LENGTHOF wArray) - 1			; L2 loop counter = number of element - 1
+	mov 	ecx,	(LENGTHOF wArray) / 2			; L2 loop counter = half number of element 
 	
 	; loop L2 use indirect addressing to switch two value
 L2:
